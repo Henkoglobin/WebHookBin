@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+
+@{
+	ViewData["Title"] = "Home";
+}
+
+<div>
+	@if (this.Model.Requests.Count == 0) {
+		<div class="request-container">
+			<span>
+				No requests logged so far.
+			</span>
+		</div>
+	}
+
+	<div>
+		@{
+			var hooksUrl = $"{this.Request.Scheme}://{this.Request.Host}/api/hooks";
+		}
+		Direct any WebHook to <a href="@hooksUrl">@hooksUrl</a> to start recording requests!
+	</div>
+
+	@foreach (var request in this.Model.Requests) {
+		<div class="request-container">
+			<div class="request-container__header">
+				<span class="request-container__method-and-path">@request.Method @request.Path</span>
+				<span class="request-container__timestamp">@request.Timestamp.ToString("F")</span>
+			</div>
+
+			<div class="request-container__data-container">
+				<div class="request-container__header-list">
+					@foreach (var header in request.Headers) {
+						<div class="request-container__header-container">
+							<span class="request-container__header-key">@header.Key:</span>
+							<span class="request-container__header-value">@header.Value</span>
+						</div>
+					}
+				</div>
+
+				<div class="request-container__query-parameter-list">
+					@foreach (var queryParameter in request.QueryParameters) {
+						<div class="request-container__query-parameter-container">
+							<span class="request-container__query-parameter-key">@queryParameter.Key:</span>
+							<span class="request-container__query-parameter-value">@queryParameter.Value</span>
+						</div>
+					}
+				</div>
+			</div>
+
+			@if (request.RawBody?.Any() ?? false) {
+				<div class="request-container__body">
+					<pre class="request-container__body-value">
+@this.Model.PrettyPrint(request)
+					</pre>
+				</div>
+			}
+		</div>
+	}
+</div>

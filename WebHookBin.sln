@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32317.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebHookBin", "WebHookBin\WebHookBin.csproj", "{8CCA829C-98B4-48B3-82DB-9AB318B145E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8B13453B-FAE4-42A7-8084-6AEF82AD9320}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CCA829C-98B4-48B3-82DB-9AB318B145E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CCA829C-98B4-48B3-82DB-9AB318B145E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CCA829C-98B4-48B3-82DB-9AB318B145E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CCA829C-98B4-48B3-82DB-9AB318B145E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D549326-7E03-4E63-8323-07698E40FBCF}
+	EndGlobalSection
+EndGlobal
