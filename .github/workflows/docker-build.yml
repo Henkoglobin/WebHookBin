@@ -19,7 +19,7 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/henkoglobin/WebHookBin:latest
+            ghcr.io/henkoglobin/webhookbin:latest
           file: WebHookBin/Dockerfile
           context: .
           build-args: |
