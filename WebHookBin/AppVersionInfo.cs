@@ -8,7 +8,7 @@ namespace WebHookBin {
 
         public AppVersionInfo() {
             this._gitHash = new(() => this.DetermineGitHash());
-            this._gitShortHash = new(() => this.GitHash.Substring(GitHash.Length - 6, 6));
+            this._gitShortHash = new(() => this.GitHash.Substring(0, 7));
         }
 
         public string GitHash => this._gitHash.Value;

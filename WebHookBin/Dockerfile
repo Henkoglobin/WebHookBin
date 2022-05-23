@@ -7,15 +7,17 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+ARG GIT_HASH
 WORKDIR /src
 COPY ["WebHookBin/WebHookBin.csproj", "WebHookBin/"]
 RUN dotnet restore "WebHookBin/WebHookBin.csproj"
 COPY . .
 WORKDIR "/src/WebHookBin"
-RUN dotnet build "WebHookBin.csproj" -c Release -o /app/build -p:SourceRevisionId=$GIT_HASH
+RUN dotnet build "WebHookBin.csproj" -c Release -o /app/build -p:SourceRevisionId=${GIT_HASH}
 
 FROM build AS publish
-RUN dotnet publish "WebHookBin.csproj" -c Release -o /app/publish -p:SourceRevisionId=$GIT_HASH
+ARG GIT_HASH
+RUN dotnet publish "WebHookBin.csproj" -c Release -o /app/publish -p:SourceRevisionId=${GIT_HASH}
 
 FROM base AS final
 WORKDIR /app
