@@ -19,7 +19,7 @@ This will start WebHookBin on [localhost:5000](http://localhost:5000).
 WebHookBin can also easily be started in a docker container:
 
 ```bash
-docker run -ti -p 5000:80 --name WebHookBin --rm ghcr.io/henkoglobin/webhookbin:latest
+docker run -ti -p 5000:80 --name WebHookBin --rm ghcr.io/henkoglobin/webhookbin:main
 ```
 
 This will start WebHookBin in Docker and bind it to [localhost:5000](http://localhost:5000).
