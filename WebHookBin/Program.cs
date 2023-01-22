@@ -12,6 +12,8 @@ switch (builder.Configuration["Database:Provider"]) {
     case "Sqlite":
         builder.Services.AddDbContext<LogDatabaseContext, SqliteLogDatabaseContext>();
         break;
+    default:
+        throw new ArgumentOutOfRangeException("Unknown database provider: " + builder.Configuration["Database:Provider"]);
 }
 
 var app = builder.Build();
