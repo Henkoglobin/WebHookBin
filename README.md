@@ -4,11 +4,11 @@ WebHookBin provides an easy way to log data sent by [Webhooks](https://en.wikipe
 
 ## Setup
 
-WebHookBin is an ASP.NET application, using .NET 6. If you want to build it locally, you'll need to [install the .NET 6 SDK](https://docs.microsoft.com/en-us/dotnet/core/install/) for your platform. Afterwards, run: 
+WebHookBin is an ASP.NET application, using .NET 7. If you want to build it locally, you'll need to [install the .NET 7 SDK](https://docs.microsoft.com/en-us/dotnet/core/install/) for your platform. Afterwards, run: 
 
 ```bash
 dotnet build --configuration Release WebHookBin
-cd WebHookBin/bin/Release/net6.0
+cd WebHookBin/bin/Release/net7.0
 ASPNETCORE_URLS="http://localhost:5000" dotnet WebHookBin.dll
 ```
 
