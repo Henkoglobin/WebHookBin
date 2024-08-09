@@ -6,6 +6,7 @@ using WebHookBin.RequestHandlers;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+builder.Services.AddCors();
 builder.Services.AddSingleton<AppVersionInfo>();
 
 switch (builder.Configuration["Database:Provider"]) {
@@ -30,6 +31,11 @@ using (var scope = app.Services.CreateScope()) {
 
 app.UseStaticFiles();
 app.MapRazorPages();
+app.UseCors(options => options
+    .AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod());
+
 app.MapFallback("/api/hooks/{*path:nonfile}", WebHookRequestHandlers.HookHandler);
 
 app.Run();

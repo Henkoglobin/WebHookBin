@@ -24,7 +24,7 @@ namespace WebHookBin.RequestHandlers {
                         header => header.Value.Select(
                             headerValue => new Header(
                                 Key: header.Key,
-                                Value: headerValue
+                                Value: headerValue ?? ""
                             )
                         )
                     ).ToList(),
